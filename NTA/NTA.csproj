@@ -144,6 +144,7 @@
   <ItemGroup>
     <Compile Include="classes\centre.cs" />
     <Compile Include="classes\Course.cs" />
+    <Compile Include="classes\Schedule.cs" />
     <Compile Include="coursesStream.asmx.cs">
       <DependentUpon>coursesStream.asmx</DependentUpon>
       <SubType>Component</SubType>

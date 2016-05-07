@@ -11,5 +11,7 @@ namespace NTA
        public string name;
        public string description;
        public int credit;
+        public DateTime sDate;
+        public DateTime eDate;
     }
 }

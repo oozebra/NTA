@@ -8,5 +8,6 @@ namespace NTA.classes
     public class centre
     {
         public int roomNo;
+        public string location;
     }
 }

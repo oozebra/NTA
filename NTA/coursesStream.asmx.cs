@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NTA.classes;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -66,7 +67,7 @@ namespace NTA
         }
 
         [WebMethod]
-        public List<Course> CoursesByLocation(string campus)
+        public List<ScheduledCourse> CoursesByLocation(string campus)
         {
             con = new SqlConnection(conString.ConnectionString);
             try
@@ -78,28 +79,52 @@ namespace NTA
             {
                 Console.Write(ex.Message);
             }
-            List<Course> course = new List<Course>();
+            List<ScheduledCourse> ClassSchedule = new List<ScheduledCourse>();
             cmd.Connection = con;
             cmd.CommandText = "SELECT DISTINCT Courses.CID, Courses.course_name, Courses.description, Courses.credit, TrainingRoom.RoomNo, Centres.locale, Members.fname, Courses.startdate, Courses.enddate FROM Centres INNER JOIN Courses INNER JOIN Roster ON Courses.CID = Roster.course_ID INNER JOIN TrainingRoom ON Courses.CID = TrainingRoom.course_ID ON Centres.centre_no = TrainingRoom.centre_ID INNER JOIN Members ON Roster.mem_ID = Members.ID WHERE (Members.mem_tp = 'trainer') AND (Centres.locale = @loc) AND (Courses.startdate <= CAST(GETDATE() AS DATE)) AND (Courses.enddate >= CAST(GETDATE() AS DATE))";
             cmd.Parameters.AddWithValue("@loc", campus);
 
             Course c;
+            
+            Member trainer;
+            ScheduledCourse schedule;
+            centre cc;
+
 
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
+                //add course properites
                 c = new Course();
 
                 c.cid = reader["CID"].ToString();
                 c.name = reader["course_name"].ToString();
                 c.description = reader["description"].ToString();
                 c.credit = Convert.ToInt32(reader["credit"].ToString());
+                c.sDate = Convert.ToDateTime(reader["startdate"].ToString());
+                c.eDate = Convert.ToDateTime(reader["enddate"].ToString());
 
-                course.Add(c);
+                //add member properites
+                trainer = new Member();
+
+                trainer.fname = reader["fname"].ToString();
+
+                //add centre properity
+                cc = new centre();
+                cc.roomNo = Convert.ToInt32(reader["RoomNo"].ToString());
+                cc.location = reader["locale"].ToString();
+
+                schedule = new ScheduledCourse();
+                schedule.Trainer = trainer;
+                schedule.Campus = cc;
+                schedule.course = c;
+
+
+                ClassSchedule.Add(schedule);
             }
 
-            return course;
+            return ClassSchedule;
         }
 
     }
