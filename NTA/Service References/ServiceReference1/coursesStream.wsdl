@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="allCourse">
+        <s:complexType />
+      </s:element>
+      <s:element name="allCourseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="allCourseResult" type="tns:ArrayOfCourse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCourse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Course" nillable="true" type="tns:Course" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Course">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="credit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="sDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="eDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CoursesByLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="campus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CoursesByLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CoursesByLocationResult" type="tns:ArrayOfScheduledCourse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScheduledCourse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduledCourse" nillable="true" type="tns:ScheduledCourse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduledCourse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Trainer" type="tns:Member" />
+          <s:element minOccurs="0" maxOccurs="1" name="Campus" type="tns:centre" />
+          <s:element minOccurs="0" maxOccurs="1" name="course" type="tns:Course" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Member">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="fname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="adres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mem_tp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dob" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="centre">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="roomNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="allCourseSoapIn">
+    <wsdl:part name="parameters" element="tns:allCourse" />
+  </wsdl:message>
+  <wsdl:message name="allCourseSoapOut">
+    <wsdl:part name="parameters" element="tns:allCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="CoursesByLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:CoursesByLocation" />
+  </wsdl:message>
+  <wsdl:message name="CoursesByLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:CoursesByLocationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="coursesStreamSoap">
+    <wsdl:operation name="allCourse">
+      <wsdl:input message="tns:allCourseSoapIn" />
+      <wsdl:output message="tns:allCourseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CoursesByLocation">
+      <wsdl:input message="tns:CoursesByLocationSoapIn" />
+      <wsdl:output message="tns:CoursesByLocationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="coursesStreamSoap" type="tns:coursesStreamSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="allCourse">
+      <soap:operation soapAction="http://tempuri.org/allCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CoursesByLocation">
+      <soap:operation soapAction="http://tempuri.org/CoursesByLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="coursesStreamSoap12" type="tns:coursesStreamSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="allCourse">
+      <soap12:operation soapAction="http://tempuri.org/allCourse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CoursesByLocation">
+      <soap12:operation soapAction="http://tempuri.org/CoursesByLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="coursesStream">
+    <wsdl:port name="coursesStreamSoap" binding="tns:coursesStreamSoap">
+      <soap:address location="http://localhost:52168/coursesStream.asmx" />
+    </wsdl:port>
+    <wsdl:port name="coursesStreamSoap12" binding="tns:coursesStreamSoap12">
+      <soap12:address location="http://localhost:52168/coursesStream.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

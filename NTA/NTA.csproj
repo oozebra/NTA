@@ -76,6 +76,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -123,6 +125,19 @@
     <Content Include="scripts\jquery-2.2.3.js" />
     <Content Include="scripts\jquery-2.2.3.min.js" />
     <Content Include="scripts\jquery-2.2.3.min.map" />
+    <None Include="Service References\ServiceReference1\coursesStream.wsdl" />
+    <Content Include="Service References\ServiceReference1\NTA.ServiceReference1.allCourseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\NTA.ServiceReference1.Course.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\NTA.ServiceReference1.CoursesByLocationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\NTA.ServiceReference1.ScheduledCourse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,7 +154,15 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\jquery.soap.js" />
     <Content Include="scripts\xml2json.js" />
+    <None Include="Service References\ServiceReference1\coursesStream.disco" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="stdRegCourse.aspx" />
+    <Content Include="Tobago.aspx" />
     <Content Include="usersCourses.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -190,12 +213,24 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="stdRegCourse.aspx.cs">
       <DependentUpon>stdRegCourse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="stdRegCourse.aspx.designer.cs">
       <DependentUpon>stdRegCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tobago.aspx.cs">
+      <DependentUpon>Tobago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tobago.aspx.designer.cs">
+      <DependentUpon>Tobago.aspx</DependentUpon>
     </Compile>
     <Compile Include="usersCourses.aspx.cs">
       <DependentUpon>usersCourses.aspx</DependentUpon>
@@ -204,6 +239,12 @@
     <Compile Include="usersCourses.aspx.designer.cs">
       <DependentUpon>usersCourses.aspx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
