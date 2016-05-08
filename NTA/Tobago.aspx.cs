@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NTA.ServiceReference1;
 
 namespace NTA
 {
@@ -18,6 +19,8 @@ namespace NTA
         SqlConnection con;
         public Member client;
         ServiceReference1.coursesStreamSoapClient clientt;
+        public ScheduledCourse[] val;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -41,9 +44,8 @@ namespace NTA
                 Console.Write(ex.Message);
             }
             clientt = new ServiceReference1.coursesStreamSoapClient();
-            //client.CoursesByLocation("Tobago");
-            GridView1.DataSource = clientt.CoursesByLocation("Tobago");
-            GridView1.DataBind();
+            val = clientt.CoursesByLocation("Tobago");
+            
         }
     }
 }
