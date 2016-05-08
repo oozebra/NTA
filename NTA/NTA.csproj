@@ -115,12 +115,14 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="SangreGrande.html" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\jquery-1.9.1.js" />
-    <Content Include="scripts\jquery-1.9.1.min.js" />
-    <Content Include="scripts\jquery-1.9.1.min.map" />
+    <Content Include="scripts\grande.js" />
+    <None Include="scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="scripts\jquery-2.2.3.js" />
+    <Content Include="scripts\jquery-2.2.3.min.js" />
+    <Content Include="scripts\jquery-2.2.3.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -135,6 +137,8 @@
     <Content Include="Register.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\jquery.soap.js" />
+    <Content Include="scripts\xml2json.js" />
     <Content Include="stdRegCourse.aspx" />
     <Content Include="usersCourses.aspx" />
     <Content Include="Web.config">

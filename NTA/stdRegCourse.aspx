@@ -8,7 +8,7 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
    
 </head>
-<body>
+<body  class="container-fluid">
     <form id="form1" runat="server">
         <!--#include file="nav.inc"-->
         <div class="row">
