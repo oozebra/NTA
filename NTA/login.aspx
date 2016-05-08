@@ -6,20 +6,43 @@
 <head runat="server">
     <title>Login</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/login.css" rel="stylesheet" />
+    <script src="scripts/login.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server" class="form-horizontal">
-    <div  class="input-group input-group-sm">
-        <asp:Label ID="Label1" class="label label-default" runat="server" Text="ID"></asp:Label>
-        <asp:TextBox ID="userid"  class="form-control" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label2" class="label label-default" runat="server" Text="password"></asp:Label>
-        <asp:TextBox ID="pwd" class="form-control" runat="server"></asp:TextBox>
-        <br />
-        <asp:Button ID="Button1" class="btn btn-default" runat="server" Text="Login" OnClick="Button1_Click" />
-
-        <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+ 
+  
+        
+        <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div class="wrap">
+                <p class="form-title">Sign In</p>
+                <form class="login" runat="server">
+					
+                    <asp:TextBox ID="TextBox1"  class="form-control" runat="server" placeholder="UserID"></asp:TextBox>
+					<asp:TextBox ID="pwd" class="form-control" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+      <asp:Button ID="Button1" class="btn btn-default btn-sm" runat="server" Text="Login" OnClick="Button1_Click" />
+					
+					
+                   
+                </form>
+            </div>
+			
+        </div>
     </div>
-    </form>
+ 
+</div>
+
+
+       
+       
+       
+        
+        
+
+       
+  
 </body>
 </html>
