@@ -1,6 +1,6 @@
- <div class="row">
-<div class="col-md-8 col-lg-12  nav nav-tabs">
-        <ul class="nav nav-tabs" >
+  <div class="navbar navbar-default topnav">
+        <div class="container topnav">
+        <ul class="nav navbar-nav navbar-left">
             <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/index.aspx">Home</asp:HyperLink></li>
 
 
@@ -14,9 +14,9 @@
            <li> <asp:HyperLink ID="hlregcourse2" runat="server" NavigateUrl="~/regCourse.aspx.cs">Register Courses</asp:HyperLink></li>
              <%   } %>
         </ul>
-        </div>
         
-        <div class="col-md-4">Welcome:  <mark><% =client.fname   %></mark> to NTA
+        
+      <div class="nav navbar-nav navbar-right">Welcome:  <mark><% =client.fname   %></mark> to NTA
             
             <asp:Button ID="btnlogout" runat="server" Text="Logout" OnClick="btnlogout_Click" class="btn btn-default"/></div>
           
@@ -32,5 +32,5 @@
     }
 </script>
    
-
+</div>
     </div>

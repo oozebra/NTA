@@ -32,13 +32,11 @@
                     $("table").append("<td>" + va['course'].name + "</td>");
                     $("table").append("<td>" + va['course'].description + "</td>");
                     $("table").append("<td>" + va['course'].credit + "</td>");
-
                     $("table").append("<td>" + va['Campus'].roomNo + "</td>");
                     $("table").append("<td>" + va['Campus'].location + "</td>");
                     $("table").append("<td>" + va['Trainer'].fname + "</td>");
                     $("table").append("<td>" + va['course'].sDate + "</td>");
-                    $("table").append("<td>" + va['course'].eDate + "</td>");
-                   
+                    $("table").append("<td>" + va['course'].eDate + "</td>" );
                     $("table").append("</tr>");
                     
                     

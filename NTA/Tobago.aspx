@@ -11,6 +11,7 @@
     <form id="form1" runat="server">
 
         <!--#include file="nav.inc"-->
+        <div class="container">
         <div class="row">
             <div class="col-lg-12 col-xs-12 col-md-8">
                 <div class="table-responsive">
@@ -34,7 +35,18 @@
                 </div>
             </div>
         </div>
-    
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">CNN: Breaking News</h3>
+            </div>
+
+            <iframe class="panel-body" src="http://localhost:50770/phpFeed.php" width="100%" style="border:none"></iframe>
+
+        </div>
+    </div>
+           
+            </div>
     </form>
 </body>
 </html>

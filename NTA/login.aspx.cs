@@ -61,7 +61,7 @@ namespace NTA
                         client.dob = reader.GetDateTime(reader.GetOrdinal("dob"));
                         
                     }
-                    Label3.Text = client.toString();
+                    
                     Session["mem"] = client;
 
                     Response.Redirect("index.aspx");
@@ -71,7 +71,7 @@ namespace NTA
             catch (SqlException se)
             {
                 Console.WriteLine(se.Message);
-                Label3.Text = se.Message;
+               
             }
         }
     }

@@ -11,9 +11,9 @@
 
 <body>
     <form id="form1" runat="server">
-    <div class="row">
-        <div class="col-md-8 nav nav-tabs">
-        <ul class="nav nav-tabs">
+    <div class="navbar navbar-default navbar-fixed-top topnav">
+        <div class="container topnav">
+        <ul class="nav navbar-nav navbar-left">
           <li role="presentation" class="active">
               <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="#">Home</asp:HyperLink></li>
           
@@ -30,9 +30,9 @@
            <li> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/regCourse.aspx.cs">Register Courses</asp:HyperLink></li>
              <%   } %>
         </ul>
-            </div>
+            
       
-        <div class="col-md-4"> Welcome:  <mark><% =client.fname   %></mark> to NTA
+        <div class="nav navbar-nav navbar-right"> Welcome:  <mark><% =client.fname   %></mark> to NTA
         
             <asp:Button ID="btnlogout" runat="server" Text="Logout" OnClick="btnlogout_Click" class="btn btn-default"/></div>
           
@@ -48,7 +48,7 @@
     }
 </script>
    
-        </div>
+        </div></div>
     
     <div class="intro-header">
         <div class="container">
@@ -64,16 +64,16 @@
                                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Port of Spain</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Chaguanas</span></a>
+                                <a href="http://localhost:8080/NTA-CHAG/sampleCoursesStreamSoapProxy/Chag.jsp" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Chaguanas</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Trincity</span></a>
+                                <a href="http://localhost:50770/" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Trincity</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Sangre Grande</span></a>
+                                <a href="SangreGrande.html" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Sangre Grande</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Tobago</span></a>
+                                <a href="Tobago.aspx"class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Tobago</span></a>
                             </li>
                         </ul>
                     </div>

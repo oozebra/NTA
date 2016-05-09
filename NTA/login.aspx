@@ -21,7 +21,7 @@
                 <p class="form-title">Sign In</p>
                 <form class="login" runat="server">
 					
-                    <asp:TextBox ID="TextBox1"  class="form-control" runat="server" placeholder="UserID"></asp:TextBox>
+                    <asp:TextBox ID="userid"  class="form-control" runat="server" placeholder="UserID"></asp:TextBox>
 					<asp:TextBox ID="pwd" class="form-control" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
       <asp:Button ID="Button1" class="btn btn-default btn-sm" runat="server" Text="Login" OnClick="Button1_Click" />
 					
