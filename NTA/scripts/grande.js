@@ -27,17 +27,17 @@
                 $.each(val['soap:Envelope']['soap:Body']['CoursesByLocationResponse']['CoursesByLocationResult'].ScheduledCourse, function (ke, va) {
 
                     console.log(va['Trainer'].fname);
-                    $("table").append("<tr>");
-                    $("table").append("<td>" + va['course'].cid + "</td>");
-                    $("table").append("<td>" + va['course'].name + "</td>");
-                    $("table").append("<td>" + va['course'].description + "</td>");
-                    $("table").append("<td>" + va['course'].credit + "</td>");
-                    $("table").append("<td>" + va['Campus'].roomNo + "</td>");
-                    $("table").append("<td>" + va['Campus'].location + "</td>");
-                    $("table").append("<td>" + va['Trainer'].fname + "</td>");
-                    $("table").append("<td>" + va['course'].sDate + "</td>");
-                    $("table").append("<td>" + va['course'].eDate + "</td>" );
-                    $("table").append("</tr>");
+                    $("tbody").append("<tr>");
+                    $("tbody").append("<td>" + va['course'].cid + "</td>");
+                    $("tbody").append("<td>" + va['course'].name + "</td>");
+                    $("tbody").append("<td>" + va['course'].description + "</td>");
+                    $("tbody").append("<td>" + va['course'].credit + "</td>");
+                    $("tbody").append("<td>" + va['Campus'].roomNo + "</td>");
+                    $("tbody").append("<td>" + va['Campus'].location + "</td>");
+                    $("tbody").append("<td>" + va['Trainer'].fname + "</td>");
+                    $("tbody").append("<td>" + va['course'].sDate + "</td>");
+                    $("tbody").append("<td>" + va['course'].eDate + "</td>");
+                    $("tbody").append("</tr>");
                     
                     
                 });
